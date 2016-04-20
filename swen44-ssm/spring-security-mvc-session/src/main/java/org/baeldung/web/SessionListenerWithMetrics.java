@@ -11,33 +11,34 @@ import com.codahale.metrics.Counter;
 
 public class SessionListenerWithMetrics implements HttpSessionListener {
 
-    private final AtomicInteger activeSessions;
+	private final AtomicInteger activeSessions;
 
-    private final Counter counterOfActiveSessions;
+	private final Counter counterOfActiveSessions;
 
-    public SessionListenerWithMetrics() {
-        super();
+	public SessionListenerWithMetrics() {
+		super();
 
-        activeSessions = new AtomicInteger();
-        counterOfActiveSessions = MetricRegistrySingleton.metrics.counter("web.sessions.active.count");
-    }
+		activeSessions = new AtomicInteger();
+		counterOfActiveSessions = MetricRegistrySingleton.metrics.counter("web.sessions.active.count");
+	}
 
-    // API
+	// API
 
-    public final int getTotalActiveSession() {
-        return activeSessions.get();
-    }
+	public final int getTotalActiveSession() {
+		return activeSessions.get();
+	}
 
-    @Override
-    public final void sessionCreated(final HttpSessionEvent event) {
-        activeSessions.incrementAndGet();
-        counterOfActiveSessions.inc();
-    }
+	@Override
+	public final void sessionCreated(final HttpSessionEvent event) {
+		activeSessions.incrementAndGet();
+		counterOfActiveSessions.inc();
+	}
 
-    @Override
-    public final void sessionDestroyed(final HttpSessionEvent event) {
-        activeSessions.decrementAndGet();
-        counterOfActiveSessions.dec();
-    }
+	@Override
+	public final void sessionDestroyed(final HttpSessionEvent event) {
+		activeSessions.decrementAndGet();
+		counterOfActiveSessions.dec();
+
+	}
 
 }

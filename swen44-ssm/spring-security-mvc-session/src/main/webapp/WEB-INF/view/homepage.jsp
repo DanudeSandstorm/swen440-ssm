@@ -6,15 +6,9 @@
 <body>
 	<h1>This is the homepage for the user</h1>
 
-	<security:authorize access="hasRole('ROLE_USER')">
-		This text is only visible to a user
-		<br />
-	</security:authorize>
-
-	<security:authorize access="hasRole('ROLE_ADMIN')">
-		This text is only visible to an admin
-		<br />
-	</security:authorize>
+	Welcome to the home page
+	
+	<a href="<c:url value="/admin.html" />">Admin console</a>
 
 	<a href="<c:url value="/j_spring_security_logout" />">Logout</a>
 

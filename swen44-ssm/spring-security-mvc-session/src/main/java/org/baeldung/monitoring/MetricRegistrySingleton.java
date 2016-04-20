@@ -10,16 +10,16 @@ import com.codahale.metrics.Slf4jReporter;
 
 public final class MetricRegistrySingleton {
 
-    public static final MetricRegistry metrics = new MetricRegistry();
+	public static final MetricRegistry metrics = new MetricRegistry();
 
-    static {
-        Logger logger = LoggerFactory.getLogger("org.baeldung.monitoring");
-        final Slf4jReporter reporter = Slf4jReporter.forRegistry(metrics).outputTo(logger).convertRatesTo(TimeUnit.SECONDS).convertDurationsTo(TimeUnit.MILLISECONDS).build();
-        reporter.start(5, TimeUnit.MINUTES);
-    }
+	static {
+		final Logger logger = LoggerFactory.getLogger("org.baeldung.monitoring");
+		final Slf4jReporter reporter = Slf4jReporter.forRegistry(metrics).outputTo(logger).convertRatesTo(TimeUnit.SECONDS).convertDurationsTo(TimeUnit.MILLISECONDS).build();
+		reporter.start(5, TimeUnit.SECONDS);
+	}
 
-    private MetricRegistrySingleton() {
-        throw new AssertionError();
-    }
+	private MetricRegistrySingleton() {
+		throw new AssertionError();
+	}
 
 }

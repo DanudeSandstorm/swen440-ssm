@@ -21,6 +21,7 @@
             <concurrency-control max-sessions="2" expired-url="/sessionExpired.html" />
         </session-management>
 
+
     </http>
 
     <beans:bean id="myAuthenticationSuccessHandler" class="org.baeldung.security.MySimpleUrlAuthenticationSuccessHandler" />

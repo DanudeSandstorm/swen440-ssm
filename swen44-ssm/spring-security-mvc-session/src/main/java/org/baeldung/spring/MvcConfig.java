@@ -13,33 +13,33 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
-    public MvcConfig() {
-        super();
-    }
+	public MvcConfig() {
+		super();
+	}
 
-    // API
+	// API
 
-    @Override
-    public void addViewControllers(final ViewControllerRegistry registry) {
-        super.addViewControllers(registry);
+	@Override
+	public void addViewControllers(final ViewControllerRegistry registry) {
+		super.addViewControllers(registry);
 
-        registry.addViewController("/anonymous.html");
+		registry.addViewController("/anonymous.html");
 
-        registry.addViewController("/login.html");
-        registry.addViewController("/homepage.html");
-        registry.addViewController("/sessionExpired.html");
-        registry.addViewController("/invalidExpired.html");
-        registry.addViewController("/console.html");
-    }
+		registry.addViewController("/login.html");
+		registry.addViewController("/homepage.html");
+		registry.addViewController("/sessionExpired.html");
+		registry.addViewController("/invalidExpired.html");
+		registry.addViewController("/admin.html");
+	}
 
-    @Bean
-    public ViewResolver viewResolver() {
-        final InternalResourceViewResolver bean = new InternalResourceViewResolver();
+	@Bean
+	public ViewResolver viewResolver() {
+		final InternalResourceViewResolver bean = new InternalResourceViewResolver();
 
-        bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/view/");
-        bean.setSuffix(".jsp");
+		bean.setViewClass(JstlView.class);
+		bean.setPrefix("/WEB-INF/view/");
+		bean.setSuffix(".jsp");
 
-        return bean;
-    }
+		return bean;
+	}
 }
