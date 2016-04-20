@@ -1,4 +1,4 @@
-#SWEN44 - Secure Session Management
+#SWEN440 - Secure Session Management
 
 This assignment is outlined under the `assignment 2` document in the contect section of mycourses for the swen-440 class
 
@@ -29,3 +29,5 @@ Make sure to implement the following requirements:
 Note: You can use the session management APIs of any existing library. This assignment requires you to implement authentication and authorization as well. You are allowed to use existing security frameworks.
 
 Constraints: Languages limited to Java, C#. You can use the existing frameworks or implement from scratch.
+
+java based off: [here](http://www.baeldung.com/spring-security-session)
